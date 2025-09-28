@@ -1,0 +1,12 @@
+{
+    "name": "teeny_ws",
+    "version": "1.0.0",
+    "urls": [
+        [ "teeny_ws/__init__.mpy", "build/__init__.mpy" ],
+        [ "teeny_ws/http_server.mpy", "build/http_server.mpy" ]
+    ],
+    "deps": [
+        [ "github:vamship/teeny_config", "1.0.0" ],
+        [ "github:vamship/teeny_logger", "1.0.0" ],
+    ]
+}
