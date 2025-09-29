@@ -7,6 +7,6 @@
     ],
     "deps": [
         [ "github:vamship/teeny_config", "1.0.0" ],
-        [ "github:vamship/teeny_logger", "1.0.0" ],
+        [ "github:vamship/teeny_logger", "1.0.0" ]
     ]
 }
