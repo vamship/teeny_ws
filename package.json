@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "urls": [
         [ "teeny_ws/__init__.mpy", "build/__init__.mpy" ],
-        [ "teeny_ws/web_server.mpy", "build/web_server.mpy" ]
-        [ "teeny_ws/http.mpy", "build/http.mpy" ]
+        [ "teeny_ws/web_server.mpy", "build/web_server.mpy" ],
+        [ "teeny_ws/http.mpy", "build/http.mpy" ],
         [ "teeny_ws/websock_session.mpy", "build/websock_session.mpy" ]
     ],
     "deps": [
