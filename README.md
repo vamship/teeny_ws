@@ -13,8 +13,8 @@ Basic usage instructions for your module:
 # result = some_function(param)
 
 # For class-based modules:
-from teeny_ws import HttpServer
-server = HttpServer()
+from teeny_ws import WebServer
+server = WebServer()
 # Add your specific usage examples here
 ```
 

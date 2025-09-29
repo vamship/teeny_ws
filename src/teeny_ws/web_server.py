@@ -4,7 +4,7 @@ microcontrollers such as the ESP32 and ESP8266. Supports fixed responses,
 chunked responses and web socket communication.
 """
 
-class HttpServer:
+class WebServer:
     """ A simple, non-blocking HTTP server that delegates request handling to
     user-defined route handlers that can be matched against specific path
     patterns

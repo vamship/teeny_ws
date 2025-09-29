@@ -2,6 +2,6 @@
 .. include:: ../../README.md
     :end-before: # Installation
 """
-__all__ = ["HttpServer"]
+__all__ = ["WebServer"]
 
-from .http_server import HttpServer
+from .web_server import WebServer
