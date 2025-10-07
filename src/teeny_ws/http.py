@@ -1,6 +1,7 @@
 from binascii import b2a_base64
 from hashlib import sha1
 from socket import socket
+import gc
 
 from micropython import const
 from teeny_logger import Logger
@@ -347,6 +348,16 @@ class HttpResponse:
             self._send_chunked_body(sock)
         else:
             self._send_fixed_body(sock)
+
+        # --- HACK ---
+        # The current implementation of sockets does not block until all
+        # data has been sent. This means that we cannot explicitly close
+        # the socket after the final send/sendall call. If left unclosed, the
+        # garbage collector should free the socket eventually. However, the GC
+        # might not be invoked unless there is memory pressure, and there
+        # appears to be a limit of 10 active sockets on the ESP32.
+        # Explicitly invoking the GC seems to get around this problem.
+        gc.collect()
 
 
 def create_ws_upgrade_response(req: HttpRequest) -> HttpResponse:
