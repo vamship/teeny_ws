@@ -71,7 +71,6 @@ class HttpRequest:
 
         [self._verb, self._path, _] = request_line.split(" ")
         tokens = self._path.split("?")
-        path = tokens[0]
         self._params = {}
 
         if len(tokens) > 1:

@@ -17,7 +17,9 @@ logger = Logger("serv")
 DEFAULT_ROUTES = {}
 
 # Default handler to report that a route did not match
-NOT_FOUND_HANDLER = lambda req: HttpResponse(404)
+def NOT_FOUND_HANDLER(req: HttpRequest) -> HttpResponse:
+    """Default handler to return a 404 Not Found response."""
+    return HttpResponse(404)
 
 # Represents a socket level event that is triggered when a connection is
 # established or dropped. This is not well documented, but is inferred based on
@@ -32,7 +34,7 @@ class WebServer:
     patterns
     """
 
-    def __init__(self, routes: dict[string, callable]):
+    def __init__(self, routes: dict[str, callable]):
         """Initialize the HTTP server with user-defined routes."""
         self._routes = routes
 
