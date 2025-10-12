@@ -25,7 +25,9 @@ class WebSockSession:
         # Disable blocking and setup an event handler for when the connection is
         # closed
         self._sock.setblocking(False)
-        self._sock.setsockopt(SOL_SOCKET, SOCK_EVENT_CONN_CHANGED, self._close_handler)
+        self._sock.setsockopt(
+            SOL_SOCKET, SOCK_EVENT_CONN_CHANGED, self._close_handler
+        )
 
         # The significance of the second parameter (True) is not known at this
         # time. There is no documentation for this, but it is inferred from the

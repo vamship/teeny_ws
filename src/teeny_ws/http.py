@@ -1,7 +1,7 @@
+import gc
 from binascii import b2a_base64
 from hashlib import sha1
 from socket import socket
-import gc
 
 from micropython import const
 from teeny_logger import Logger
@@ -163,7 +163,9 @@ class HttpResponse:
         total_bytes = 0
         header_count = 0
         for header_name, header_value in self._headers.items():
-            count = sock.write(f"{header_name}: {header_value}\r\n".encode("utf-8"))
+            count = sock.write(
+                f"{header_name}: {header_value}\r\n".encode("utf-8")
+            )
             total_bytes += count
             header_count += 1
         logger.debug(f"Sent [{header_count}] headers; [{count}] bytes")
@@ -205,7 +207,9 @@ class HttpResponse:
                     f"Sent [{chunk_count}] chunks [{total_bytes} ({chunk_size})] bytes"
                 )
             total_bytes += sock.write("0\r\n\r\n".encode("utf-8"))
-            logger.debug(f"Sent stream [{chunk_count}] chunks; [{total_bytes}] bytes")
+            logger.debug(
+                f"Sent stream [{chunk_count}] chunks; [{total_bytes}] bytes"
+            )
 
     @property
     def code(self) -> int:
@@ -300,7 +304,9 @@ class HttpResponse:
         """
         if content_type is None:
             ext = file_path.split(".")[-1]
-            content_type = CONTENT_TYPES.get(f".{ext}", "application/octet-stream")
+            content_type = CONTENT_TYPES.get(
+                f".{ext}", "application/octet-stream"
+            )
         self.set_header("content-type", content_type)
         self._body = open(file_path, "rb")
         self._stream_response = True

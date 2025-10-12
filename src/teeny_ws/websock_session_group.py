@@ -52,6 +52,7 @@ class WebSockSessionGroup:
         active sessions within the group.
         """
         import time
+
         logger.info(f"Starting web socket group [{self._name}]")
         self._is_running = True
         while self._is_running:

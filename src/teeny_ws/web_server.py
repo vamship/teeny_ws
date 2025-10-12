@@ -16,10 +16,12 @@ logger = Logger("serv")
 # Default routes to use if no matching routes are found
 DEFAULT_ROUTES = {}
 
+
 # Default handler to report that a route did not match
 def NOT_FOUND_HANDLER(req: HttpRequest) -> HttpResponse:
     """Default handler to return a 404 Not Found response."""
     return HttpResponse(404)
+
 
 # Represents a socket level event that is triggered when a connection is
 # established or dropped. This is not well documented, but is inferred based on
@@ -78,7 +80,9 @@ class WebServer:
             except Exception as err:
                 logger.error(f"Error processing request: [{str(err)}]")
                 response = HttpResponse(500)
-                response.set_text_body("Unexpected error while processing request")
+                response.set_text_body(
+                    "Unexpected error while processing request"
+                )
             response.send(conn)
             logger.info(f"Sent response to [{addr}]")
 
